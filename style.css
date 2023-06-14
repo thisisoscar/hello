@@ -1,0 +1,9 @@
+@font-face {
+    font-family: mine;
+    src: url("Nunito.ttf");
+}
+
+body {
+    background-color: darkgrey;
+    font-family: mine;
+}
