@@ -127,3 +127,14 @@ function nextRound()
         document.getElementById('visitors shower').innerHTML =  visitors1 + ' | ?';
     }
 }
+
+function printTextarea() {
+    var textarea = document.getElementById('myTextarea');
+    var printWindow = window.open('', '_blank');
+    printWindow.document.open();
+    printWindow.document.write('<html><head><title>Printed Page</title></head><body>');
+    printWindow.document.write('<pre>' + textarea.value + '</pre>');
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+}
