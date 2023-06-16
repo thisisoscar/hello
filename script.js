@@ -130,11 +130,22 @@ function nextRound()
 
 function printTextarea() {
     var textarea = document.getElementById('myTextarea');
-    var printWindow = window.open('', '_blank');
-    printWindow.document.open();
-    printWindow.document.write('<html><head><title>Printed Page</title></head><body>');
-    printWindow.document.write('<pre>' + textarea.value + '</pre>');
-    printWindow.document.write('</body></html>');
-    printWindow.document.close();
-    printWindow.print();
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var iframeDocument = iframe.contentWindow.document;
+    iframeDocument.open();
+    iframeDocument.write('<html><head><title>Printed Page</title></head><body>');
+    iframeDocument.write('<pre>' + textarea.value + '</pre>');
+    iframeDocument.write('</body></html>');
+    iframeDocument.close();
+
+    iframe.contentWindow.focus();
+    iframe.contentWindow.print();
+
+    // Remove the iframe after printing is done
+    setTimeout(function() {
+      document.body.removeChild(iframe);
+    }, 1000); // Adjust the delay if necessary
 }
