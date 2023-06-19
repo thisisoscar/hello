@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
     <body>
@@ -18,5 +19,14 @@
         <button type="button" id="number increase" onclick="numberIncrease()">increase<br>cost=0<br>effect=1</button>
         <button type="button" id="increase increase" onclick="buyIncrease()">increase 'increase'<br>cost=10<br>effect=1</button>
         <button type="button" id="increase increase increase" onclick="buyIncreaseIncrease()">increase 'increase increase'<br>cost=1000<br>effect=1</button>
+
+        <hr>
+        <button onclick="game()">initialise game</button><br>
+        <button onclick="nextRound()">next round</button>
+        <h2>Choose the highest website from below:</h2>
+        <button id="website1" onclick="pickSite('website1', 'website2')"></button>
+        <button id="website2" onclick="pickSite('website2', 'website1')"></button>
+        <p id="visitors shower">? | ?</p>
+        <p id="score">score: 0</p>
     </body>
 </html>
