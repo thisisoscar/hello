@@ -9,5 +9,20 @@ body {
 }
 
 p {
-    
+    border: 10px solid green;
+    padding: 5px;
+    margin: 0px;
+}
+
+@keyframes example {
+    0% {background-color: red;}
+    100% {background-color: yellow;}
+}
+  
+div {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    animation-name: example;
+    animation-duration: 60s;
 }
