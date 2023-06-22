@@ -149,3 +149,62 @@ function printTextarea() {
       document.body.removeChild(iframe);
     }, 1000); // Adjust the delay if necessary
 }
+
+let pageNames = ["index", "tabler", "scripter", "former", "animetioner", "dom-activity-1"];
+let currentPageIndex = 0;
+
+function goToNextPage() 
+{
+  currentPageIndex++;
+  if (currentPageIndex >= pageNames.length) 
+  {
+    currentPageIndex = 0;
+  }
+  let nextPageName = pageNames[currentPageIndex];
+  window.location.assign(nextPageName + ".html");
+}
+
+function goToPreviousPage() 
+{
+  currentPageIndex--;
+  if (currentPageIndex < 0) 
+  {
+    currentPageIndex = pageNames.length - 1;
+  }
+  let previousPageName = pageNames[currentPageIndex];
+  window.location.assign(previousPageName + ".html");
+}
+
+function renderPagination() 
+{
+    let pagesContainer = document.querySelector('.pages');
+  
+    for (let i = 0; i < pageNames.length; i++) 
+    {
+      let pageLink = document.createElement('a');
+      pageLink.href = pageNames[i] + '.html';
+      pageLink.textContent = pageNames[i];
+      pageLink.classList.add('page');
+  
+      if (i === currentPageIndex) {
+        pageLink.classList.add('active');
+      }
+  
+      pagesContainer.appendChild(pageLink);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderPagination();
+    document.querySelector('.prev').addEventListener('click', goToPreviousPage);
+    document.querySelector('.next').addEventListener('click', goToNextPage);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const myElement = document.getElementById('is-the-dot');
+    
+    myElement.addEventListener('animationiteration', () => {
+        let blue = Math.floor(Math.random()*256);
+        myElement.style.backgroundColor = 'rgb(0, 0, ${blue})';
+    });
+});

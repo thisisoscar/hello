@@ -15,14 +15,61 @@ p {
 }
 
 @keyframes example {
-    0% {background-color: red;}
-    100% {background-color: yellow;}
+    0% {background-color: red; width: 55px;}
+    100% {background-color: yellow; width: 215px;}
 }
   
-div {
-    width: 100px;
+.colourwow {
+    width: 215px;
     height: 100px;
     background-color: black;
     animation-name: example;
-    animation-duration: 60s;
+    animation-duration: 3s;
+    animation-iteration-count: 5;
+    animation-direction: alternate;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.pages {
+    display: flex;
+    gap: 5px;
+}
+  
+.pages a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+}
+  
+.pages a.active {
+    font-weight: bold;
+}
+
+@keyframes dotter {
+    0% {opacity: 0; background-color: rgb(red, green, blue);}
+    100% {opacity: 100;}
+}
+
+.dot {
+    width: 50px;
+    height: 50px;
+    background: purple;
+}
+
+.dot-holder {
+    display: grid;
+    place-items: center;
+}
+
+#is-the-dot {
+    animation-name: dotter;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    /*animation-direction: alternate-reverse;*/
+    /*animation-timing-function: linear;*/
 }
